@@ -3,12 +3,17 @@ from pydantic import BaseModel
 from requests_oauthlib import OAuth1
 from io import BytesIO
 import requests
+from dotenv import load_dotenv
+import os
 
-# Twitter credentials
-API_KEY = 'y7AwQ05joG0FMXD1P4EThPqPH'
-API_SECRET = 'WFw9hm6jfNwTmEY2tTayzT0FP7aP5ch78N9g140gn49W1KMUF5'
-ACCESS_TOKEN = '1893569243918278657-79yI1AvxSO4pizLEFxhMsSTxYqukmz'
-ACCESS_SECRET = 'vGgLHV3rgxsGPuAUGPm95pYWtTKCvBjkgqDHod0fzWQF5'
+# Load environment variables
+load_dotenv()
+
+# Twitter credentials from environment variables
+API_KEY = os.getenv('TWITTER_API_KEY')
+API_SECRET = os.getenv('TWITTER_API_SECRET')
+ACCESS_TOKEN = os.getenv('TWITTER_ACCESS_TOKEN')
+ACCESS_SECRET = os.getenv('TWITTER_ACCESS_SECRET')
 
 auth = OAuth1(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_SECRET)
 
